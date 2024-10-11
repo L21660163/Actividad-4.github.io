@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Suma</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0bbf3; /* Fondo morado pastel */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #f3e5f5; /* Fondo claro de la caja */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #9575cd; /* Tono morado medio para el título */
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #4a4a4a; /* Color de texto oscuro */
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #b39ddb; /* Borde morado suave */
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input[type="text"] {
+            background-color: #e1bee7; /* Fondo pastel claro para el resultado */
+            cursor: not-allowed;
+        }
+
+        button {
+            background-color: #ba68c8; /* Botón en morado pastel */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #ab47bc; /* Cambio de color al pasar el ratón */
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #6d6d6d; /* Color gris suave para el pie de página */
+        }
+    </style>
+    <script>
+        // Función para calcular la suma de dos números ingresados
+        function calcularSuma() {
+            // Captura los valores de los inputs y los convierte a números
+            var churpia1 = parseFloat(document.getElementById('numero1').value);
+            var churpia2 = parseFloat(document.getElementById('numero2').value);
+            
+            // Verifica si los valores ingresados son números válidos
+            if (isNaN(churpia1) || isNaN(churpia2)) {
+                alert('Por favor, ingrese números válidos.'); // Mensaje de error
+                return; // Termina la función si hay un error
+            }
+            
+            // Realiza la suma de los números
+            var caquita = churpia1 + churpia2;
+            
+            // Muestra el resultado en el campo de entrada con id "resultado"
+            document.getElementById('resultado').value = caquita;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Suma</h1>
+        <form onsubmit="event.preventDefault(); calcularSuma();">
+            <!-- Campo para ingresar el primer número -->
+            <label for="numero1">Primer Número (churpia1):</label>
+            <input type="number" id="numero1" required><br><br>
+            
+            <!-- Campo para ingresar el segundo número -->
+            <label for="numero2">Segundo Número (churpia2):</label>
+            <input type="number" id="numero2" required><br><br>
+            
+            <!-- Botón para calcular la suma -->
+            <button type="submit">Calcular Suma</button><br><br>
+            
+            <!-- Campo para mostrar el resultado -->
+            <label for="resultado">Resultado (caquita):</label>
+            <input type="text" id="resultado" readonly><br>
+        </form>
+        <div class="footer">¡Fácil y rápido!</div>
+    </div>
+</body>
+</html>
